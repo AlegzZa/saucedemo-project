@@ -16,8 +16,8 @@ public class BackToProductsPage {
     private By titleOfProduct=By.xpath("//div[@id=\"inventory_item_container\"]/descendant::div[@class=\"inventory_details_name large_size\"]");
     private By details=By.xpath("//div[@id=\"inventory_item_container\"]/descendant::div[@class=\"inventory_details_desc large_size\"]");
     private By price=By.xpath("//div[@id=\"inventory_item_container\"]/descendant::div[@class=\"inventory_details_price\"]");
-    private By addCartButton=By.xpath("//div[@id=\"inventory_item_container\"]/descendant::button[@id=\"add-to-cart-sauce-labs-backpack\"]");
-    private By removeCartButton= By.xpath("//div[@id=\"inventory_item_container\"]/descendant::button[@id=\"remove-sauce-labs-backpack\"]");
+    private By addCartButton=By.xpath("//div[@id=\"inventory_item_container\"]/descendant::button[@id=\"add-to-cart\"]");
+    private By removeCartButton= By.xpath("//div[@id=\"inventory_item_container\"]/descendant::button[@id=\"remove\"]");
     //actions
     public boolean imageIsDisplayed() {
      return	driver.findElement(image).isDisplayed();

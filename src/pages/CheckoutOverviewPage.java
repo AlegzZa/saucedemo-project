@@ -18,7 +18,7 @@ public class CheckoutOverviewPage {
 	private By shippingInformation=By.xpath("//div[@class=\"summary_value_label\"][2]");
 	private By itemTotal=By.xpath("//div[@class=\"summary_subtotal_label\"]");
 	private By tax=By.xpath("//div[@class=\"summary_tax_label\"]");
-	private By total=By.xpath("//div[@class=\"summary_info_label summary_total_label\"]");
+	private By total=By.xpath("//div[@data-test=\"total-label\"]");
 
 
 	//actions

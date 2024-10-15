@@ -37,5 +37,6 @@ public class CheckoutCompletePage {
 	}
 	public String isURLOfPageCorrect() {
     	return driver.getCurrentUrl();
+    	
     }
 }

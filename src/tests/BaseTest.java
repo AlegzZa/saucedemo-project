@@ -22,7 +22,6 @@ import pages.ProductsPage;
 import pages.YourCartPage;
 
 public class BaseTest {
-	    //Object declaration
 	static WebDriver driver;
 	public static LoginPage loginpage;
 	public static ProductsPage productspage;
@@ -34,8 +33,7 @@ public class BaseTest {
 	public static CheckoutOverviewPage checkoutoverviewpage;
 	public static CheckoutCompletePage checkoutcompletepage;
 	
-	    //Object instantiation - data management
-	public Users adminuser = new Users("adminuser");
+	public  Users adminuser = new Users("adminuser");
 	public Users client= new Users("client");
 	public Products product= new Products("product");
 	public OrderDetailsFinal orderdetails=new OrderDetailsFinal("orderDetails");
@@ -43,13 +41,11 @@ public class BaseTest {
 	@Before
 	public void before() {
 		
-		//ChromeDriver setup;
 	System.setProperty("webdriver.chorme.driver","src/resource/chromedriver.exe");
-	driver =new ChromeDriver();
+	driver = new ChromeDriver();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 
-	    //Object instantiation - pages;
     loginpage= new LoginPage(driver);
 	productspage= new ProductsPage(driver);
 	menu= new Menu(driver);
@@ -60,11 +56,9 @@ public class BaseTest {
 	checkoutoverviewpage= new CheckoutOverviewPage(driver);
 	checkoutcompletepage=new CheckoutCompletePage(driver);
 	
-	   //Navigate to Login Page
 	driver.navigate().to(URL.LOGIN);
 
 	}
-	
 	@After
 	public void after() {
 		//driver.close();

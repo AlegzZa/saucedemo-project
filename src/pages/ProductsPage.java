@@ -22,7 +22,7 @@ public class ProductsPage {
 
 	//Locators
 	private By pageTitle =By.xpath("//div[@class=\"header_secondary_container\"]/span[text()=\"Products\"]");
-	private By addCartButton=By.xpath("//div[@id=\"inventory_container\"]/descendant::button[@id=\"add-to-cart-sauce-labs-backpack\"][1]");
+	private By addCartButton=By.xpath("//div[@id=\"inventory_container\"]/descendant::button[@id=\"add-to-cart-sauce-labs-backpack\"]");
 	private By removeCartButton=By.xpath("//div[@id=\"inventory_container\"]/descendant::button[@id=\"remove-sauce-labs-backpack\"][1]");
 	private By nameOfProduct= By.xpath("//a[@id=\"item_4_title_link\"]/div[text()=\"Sauce Labs Backpack\"]");
 	private By selectDropDown= By.xpath("//select[@class=\"product_sort_container\"]");
@@ -64,80 +64,56 @@ public class ProductsPage {
 		}
 		return listaStringuri;
 	}
-	public List<String> createANewList(By name){
-		List<String> newList= new ArrayList<>();
-		for(String item:listOfStringFromWebElements(name)) {
-			 newList.add(item);
-		}
-		return newList;
-	}
 	
 	public boolean isListSortedFromAToZ() {
 		List<String> newList= new ArrayList<>();
-		for(String item:isSortedFromAToZ()){
-			newList.add(item);
-			Collections.sort(newList);
-		}
-		//System.out.println(newList);
+		Collections.sort(newList);
 		return isSortedFromAToZ().equals(newList);
 	}
 	
 	public List<String> isSortedFromAToZ(){
 		clickSelectDropDown().selectByIndex(0);
-		return createANewList(listTitleItems);
+		return listOfStringFromWebElements(listTitleItems);
 	}
 	public boolean isListSortedFromZToA() {
 		List<String> newList= new ArrayList<>();
-		for(String item:isSortedFromZToA()){
-			newList.add(item);
-			Collections.sort(newList,Collections.reverseOrder());
-		}
+		Collections.sort(newList,Collections.reverseOrder());
 		return isSortedFromZToA().equals(newList);
 	}
 
 	public List<String> isSortedFromZToA(){
 		clickSelectDropDown().selectByIndex(1);
-		return createANewList(listTitleItems) ;
+		return listOfStringFromWebElements(listTitleItems) ;
 	}
 
 
-	public boolean isListSortedFromLowestToHighestPrice() {
-		List<Double> newList= new ArrayList<>();
-		for(Double item:isSortedFromLowestToHighestPrice()){
-			newList.add(item);
-			Collections.sort(newList);
-		}
-		System.out.println(newList);
-		return isSortedFromLowestToHighestPrice().equals(newList);
+	public List<Double> isListSortedFromLowestToHighestPrice() {
+		List<Double> newList= isSortedFromLowestToHighestPrice();
+		Collections.sort(newList);
+		return newList;
 	}
 
 	public List<Double> isSortedFromLowestToHighestPrice(){
 		clickSelectDropDown().selectByIndex(2);
-		System.out.println(createANewListDouble(listPriceOfItems));
 		return createANewListDouble(listPriceOfItems);
 	}
 	public boolean isListSortedFromHighestToLowestPrice() {
-		List<Double> newList= new ArrayList<>();
-		for(Double item:isSortedFromHighestToLowest()){
-			newList.add(item);
-			Collections.sort(newList,Collections.reverseOrder());
-		}
-		System.out.println(newList);
+		List<Double> newList= isSortedFromHighestToLowest();
+		Collections.sort(newList,Collections.reverseOrder());
 		return  isSortedFromHighestToLowest().equals(newList);
 	}
-
+	
 	public List<Double> isSortedFromHighestToLowest(){
 		clickSelectDropDown().selectByIndex(3);
-		System.out.println(createANewListDouble(listPriceOfItems));
 		return createANewListDouble(listPriceOfItems) ;
 	}
 	public List<Double> createANewListDouble(By name){
 		List<Double> newList= new ArrayList<>();
 		for(String item:listOfStringFromWebElements(name)) {
-			item=item.replaceAll("[$]","").trim();
-			newList.add(Double.valueOf(item));
+			newList.add(Double.valueOf(item.replaceAll("[$]","").trim()));
 		}
 		return newList;
 	}
+	
 
 }

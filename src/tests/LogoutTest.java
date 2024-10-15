@@ -25,19 +25,13 @@ public class LogoutTest extends BaseTest{
 		productspage.clickOnNameOfProduct();
 		assertEquals(Errors.ERROR_LOGGED_OUT_USER,loginpage.textOfErrorContainer());
 	}
-	
 	@Test 
 	public void doesLogoutWork() {
-		     //click on logout button
 		menu.clickOnMenuIcon();
-		//check that the logout button works
 		menu.clickOnLogoutButton();
-		//1.assert that URL of page is the correct one  
 		assertEquals(URL.LOGIN, loginpage.isURLOfPageCorrect());
-		//2.that you can interact with the username and password fields
 		assertTrue(loginpage.isPasswordFieldEnabled());
 		assertTrue(loginpage.isUsernameFieldEnabled());
-		//3.assert that you can interact with the login button
 		assertTrue(loginpage.isLoginButtonEnabled());
 
 	}

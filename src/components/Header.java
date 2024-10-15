@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Header {
-	WebDriver driver;
+   WebDriver driver;
 	
 	public Header(WebDriver driver) {
 		this.driver=driver;
